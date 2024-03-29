@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: test-cd 
+  name: myapp-deployment
+  labels:
+    app: myapp
+spec:
+  selector:
+    app: myapp
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
