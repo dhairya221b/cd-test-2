@@ -1,0 +1,38 @@
+# ---
+# apiVersion: image.toolkit.fluxcd.io/v1beta2
+# kind: ImagePolicy
+# metadata:
+#   name: new-image
+#   namespace: test-cd
+# status:
+#   latestImage: docker.io/dhairya442/
+
+# ---
+# apiVersion: image.toolkit.fluxcd.io/v1beta2
+# kind: ImagePolicy
+# metadata:
+#   name: podinfo
+#   namespace: default
+# spec:
+#   imageRepositoryRef:
+#     name: podinfo
+#   policy:
+#     semver:
+#       range: 5.1.x
+
+---
+
+apiVersion:  image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: myapp   
+  namespace: test-cd
+spec:
+  imageRepositoryRef:
+    name: myapp
+  filterTags:
+    extract: $ts
+    pattern: ^master-[a-f0-9]+-(?P<ts>[0-9]+)
+  policy:
+    numerical:
+      order: asc
