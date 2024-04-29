@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: docker.io/dhairya442/docker_exe:master-436d779-1713358673 # {"$imagepolicy": "test-cd:myapp"}
+        image: docker.io/dhairya442/docker_exe:master-436d779-1713334957 # {"$imagepolicy": "test-cd:myapp"}
         resources:
           limits:
             memory: "2Gi"
